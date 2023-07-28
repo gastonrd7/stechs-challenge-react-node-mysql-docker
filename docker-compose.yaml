@@ -23,7 +23,6 @@ services:
       - "3001:3001" # Exponer el puerto 3001 del backend
 
   db:
-    image: mysql:5.7.34
     container_name: db
     environment:
       MYSQL_ROOT_PASSWORD: Gmatias1234!
