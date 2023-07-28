@@ -7,6 +7,7 @@ const filePath = './src/files/models.json';
 
 export const getModems = async (req: Request, res: Response) => {
  try {
+    console.info('Se hace una peticion al endpoint modems con el verbo GET');
     const lowercaseSearchName = req.params.vendor.toLowerCase();
     
     const resultQueryInDataBase = await querySelectModems(lowercaseSearchName);
@@ -28,6 +29,7 @@ export const getModems = async (req: Request, res: Response) => {
 
 export const addModems = async (req: Request, res: Response) => {
  try {
+    console.info('Se hace una peticion al endpoint modems con el verbo Post');
     const dataJson = await readJSONFile(filePath);
     const updatedContent = updateContentInJson(req.body.input, dataJson); 
     writeJSONFile(filePath, updatedContent);
