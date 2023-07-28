@@ -35,7 +35,14 @@ En este repositorio se definen dos servicios:
 
 # Ejecucion de los servicios mediante docker.
 
-Para esto se creo un docker file para backend, un dockerfile para frontend y un docker-compose.yaml
+Para esto se creo un Dockerfile para backend, un Dockerfile para frontend y un docker-compose.yaml en la raiz del repositorio.
+
+El Dockerfile de backend parte de una version de node, instala y hace un build del paquete y deja como entrada el comando start.
+
+El Dockerfile de frontend parte de una version de node, instala y hace un build del paquete y deja como entrada el comando start.
+
+El docker-compose.yaml ejecuta cada uno de estos dockerfile, vincula los puertos, crea la imagen de mysql y crea la imagen phpmyadmin para poder interactuar con la bd mediante web en el puerto 8080
+
 
 ## Pre requisitos
  - docker
@@ -76,7 +83,7 @@ db:
 
 La opción platform en docker-compose.yml se utiliza para especificar la plataforma de destino para la construcción y ejecución de servicios en Docker Compose. Puedes usar esta opción cuando tienes una arquitectura específica y deseas asegurarte de que tus servicios se ejecuten en contenedores compatibles con esa arquitectura.
 
-Independientemente del Sistema Operativo, esto tiene que ver con el chip que se utiliza si es intel o apple.
+Independientemente del Sistema Operativo, tiene que ver con el chip que se utiliza: intel o apple.
 
 
 ### Ejecucion de los servicios
@@ -87,8 +94,14 @@ Estar parado en el root del repositorio y ejecutar la siguiente linea de comando
 npm run docker:start
 ```
 
-### Compilacion de las imagenes sin considerar el cache
 
+### Acceso a las applicaciones luego de que esten corriendo todas las imagenes.
+  - Frontend: [http://localhost:3000](http://localhost:3000)
+  - Backend: [http://localhost:3001](http://localhost:3001)
+  - Admin de Base de Datos: [http://localhost:8080](http://localhost:8080) con las credenciales 'root' y 'Gmatias1234!'
+
+
+### Compilacion de las imagenes sin considerar el cache
 ```
 npm run docker:build
 ```
@@ -101,11 +114,6 @@ npm run docker:restart
   
 Esto particularmente sirve para poner el JSON fisico en su estado inicial, ya que las imagenes de los servicios son       
 destruidas y nuevamente construidas.
-
-### Acceso a las applicaciones luego de que esten corriendo todas las imagenes.
-  - Frontend: [http://localhost:3000](http://localhost:3000)
-  - Backend: [http://localhost:3001](http://localhost:3001)
-  - Admin de Base de Datos: [http://localhost:8080](http://localhost:8080) con las credenciales 'root' y 'Gmatias1234!'
 
 En caso de estar usando dockerDesktop se podran ver las imagenes agrupadas en stechs como muestra la imagen
   
@@ -135,3 +143,16 @@ npm install
 ```
 npm run dev
 ```
+Backend: [http://localhost:3001](http://localhost:3001)
+
+### Ejecucion del servicio frontend
+
+Debemos pararnos en la subcarpeta llamada frontend y correr los siguientes comandos:
+
+```
+npm install
+```
+```
+npm start
+```
+Backend: [http://localhost:3001](http://localhost:3001)
