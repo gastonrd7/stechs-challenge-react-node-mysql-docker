@@ -1,0 +1,22 @@
+{
+  "name": "stechschallenge-react-node-mysql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docker:build": "docker-compose build --no-cache --progress=plain",
+    "docker:start": "docker-compose --project-name stechs up --build",
+    "docker:restart": "docker-compose --project-name stechs down && docker-compose --project-name stechs up --build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gastonrd7/stechsChallenge-React-Node-mySql.git"
+  },
+  "author": "Gaston Ruiz Diaz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gastonrd7/stechsChallenge-React-Node-mySql/issues"
+  },
+  "homepage": "https://github.com/gastonrd7/stechsChallenge-React-Node-mySql#readme"
+}
