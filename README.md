@@ -186,3 +186,21 @@ Backend: [http://localhost:3001](http://localhost:3000)
 
 # Demo de la app funcionando
 
+## Levantando todas las imagenes
+
+
+https://github.com/gastonrd7/stechs-challenge-react-node-mysql-docker/assets/12037109/e8a5802d-e512-4e2b-ab72-b828c24cdd35
+
+
+
+## Funcionamiento de la web
+
+https://github.com/gastonrd7/stechs-challenge-react-node-mysql-docker/assets/12037109/0ff28139-bec7-468b-85f0-7fd279c6e0e7
+
+## Interacion con la BD y con la api
+
+
+https://github.com/gastonrd7/stechs-challenge-react-node-mysql-docker/assets/12037109/d5856532-9b9f-425b-a54f-dc2217f1ee1b
+
+
+
