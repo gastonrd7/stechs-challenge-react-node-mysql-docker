@@ -20,20 +20,22 @@ En este repositorio se definen dos servicios:
 - Mysql: Para conectarme desde la api al servicio de base de datos mysql
 - Jest (test)
 
-## Para poder ejecutarlos, se puede hacer de dos formas:
-  - Docker: Que corran dentro de docker para facilitar el deployment, esto facilita:
+## Para poder ejecutar estos servicios y la bd, se puede hacer de dos formas:
+  - Mediante docker: Que corran dentro de docker para facilitar el deployment, esto facilita:
     - Creacion de los servicios.
     - La creacion del servicio de mysql.
     - La creacion automatica de la BD, tabla e insercion de registros.
     - Una web para poder interactuar con la BD.
-  - Manual: Instalacion de cada uno de los servicios que consisten en los siguientes pasos:
-    - Instalar fronend
-    - Instalar backend
-    - Instalar servicio mysql
+  - Manualmente: Instalacion de cada uno de los servicios:
+    - Instalar y correr frontend.
+    - Instalar y correr backend.
+    - Instalar servicio mysql.
     - Instalar cliente MySQLWorkbench para interactuar con la BD.
-    - Hacer una creacion de la tabla que propone el ejercicio y luego una insercion de 160 registros que propone el ejercicio.
+    - Crear una BD y luego insertar la tabla y registros que el ejercicio propone.
 
-# Ejecucion por el camino dockerizado
+# Ejecucion de los servicios mediante docker.
+
+Para esto se creo un docker file para backend, un dockerfile para frontend y un docker-compose.yaml
 
 ## Pre requisitos
  - docker
@@ -74,9 +76,7 @@ db:
 
 La opción platform en docker-compose.yml se utiliza para especificar la plataforma de destino para la construcción y ejecución de servicios en Docker Compose. Puedes usar esta opción cuando tienes una arquitectura específica y deseas asegurarte de que tus servicios se ejecuten en contenedores compatibles con esa arquitectura.
 
-Independientemente del SO, esto tiene que ver con el chip que se utiliza si es intel o apple.
-
-
+Independientemente del Sistema Operativo, esto tiene que ver con el chip que se utiliza si es intel o apple.
 
 
 ### Ejecucion de los servicios
@@ -118,3 +118,20 @@ En caso de estar usando dockerDesktop se podran ver las imagenes agrupadas en st
  - [servicio MYSQL](https://dev.mysql.com/downloads/mysql/)
  - nodejs >=16
  - npm
+
+### Ejecucion del servicio de BD
+
+  - Ejecutar MysqlWorkbench y generar una intancia local, como muestra la imagen.
+![Screenshot 2023-07-28 at 18 09 16](https://github.com/gastonrd7/stechs-challenge-react-node-mysql-docker/assets/12037109/35084ad5-ddac-4af9-a561-db4da098f7f2)
+  - Luego crear un nuevo schema (nueva BD) y ahi usar el wizard para crear la tabla y la insercion de registros en base a archivo modems.sql.
+
+### Ejecucion del servicio(api) backend
+
+Debemos pararnos en la subcarpeta llamada backend y correr los siguientes comandos:
+
+```
+npm install
+```
+```
+npm run dev
+```
