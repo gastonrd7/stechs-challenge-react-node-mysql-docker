@@ -135,6 +135,33 @@ En caso de estar usando dockerDesktop se podran ver las imagenes agrupadas en st
 
 ### Ejecucion del servicio(api) backend
 
+Debemos reemplazar el siguiente codigo del siguiente file si no vamos a utilizar docker:
+Archivo: backend/src/database/connector.ts
+
+Reemplazar este bloque:
+```
+const pool = mysql.createPool({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE,
+  connectionLimit: Number.parseInt(process.env.DB_CONNECTION_LIMIT || '10'),
+});
+```
+
+por este otro
+```
+const pool = mysql.createPool({
+  host: 'localhost',
+  user: 'root',
+  password: 'Gmatias1234!',
+  database: 'stechsChallenge',
+  connectionLimit: 10,
+});
+```
+Al no usar docker, no me deja tomar las variables de entorno, es algo a ajustar y por cuestiones de tiempo deben quedar incrustadas en el codigo las credenciales.
+
+
 Debemos pararnos en la subcarpeta llamada backend y correr los siguientes comandos:
 
 ```
@@ -155,4 +182,7 @@ npm install
 ```
 npm start
 ```
-Backend: [http://localhost:3001](http://localhost:3001)
+Backend: [http://localhost:3001](http://localhost:3000)
+
+# Demo de la app funcionando
+
